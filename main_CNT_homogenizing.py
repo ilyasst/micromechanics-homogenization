@@ -198,7 +198,7 @@ angle_0pi.append( import_anglepi( "0pi_64points.csv" ) )
 angle_0pi.append( import_anglepi( "0pi_128points.csv" ) )
 angle_0pi.append( import_anglepi( "0pi_256points.csv" ) )
 angle_0pi.append( import_anglepi( "0pi_512points.csv" ) )
-
+   
 angle_2pi = initTensor( 0., 6 )
 angle_2pi[0] = import_anglepi( "02pi_16points.csv" )
 angle_2pi[1] = import_anglepi( "02pi_32points.csv" )
@@ -230,7 +230,7 @@ print " Now going to compute the new rigidity matrix C_NTC_matrix_tilde when the
 
 C_NTC_matrix_t = moyenne_orientation( C_NTC_tensor4, angle_0pi, angle_2pi, N )
 print
-print "C_NTC_matrix_tilde rigidity of NTCs when they gather as spherical aggregates:"
+print "C_NTC_matrix_tilde rigidity of NTCs when they stick together as spherical aggregates:"
 for i in range(0, len(C_NTC_matrix_t)):
 	print C_NTC_matrix_t[i]
 C_NTC_tensor4_t = voigt4_to_tensor4(C_NTC_matrix_t)
