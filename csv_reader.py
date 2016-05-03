@@ -17,31 +17,31 @@ class csv_reader():
     the data folder.
     """
     def __init__(self):
-        #self.zeta = self.import_hmgnzt_quad( "zeta3_4points.csv" )
-        #self.omega = self.import_hmgnzt_quad( "zeta3_4points.csv" )
+        self.zeta = self.import_hmgnzt_quad( "zeta3_4points.csv" )
+        self.omega = self.import_hmgnzt_quad( "zeta3_4points.csv" )
         self.angle_0pi = self.get_angle_0pi()
         self.angle_2pi = self.get_angle_2pi()        
 
     def import_hmgnzt_quad( self, file_name ):
-	    i = 0
-	    tensor = tensors()
-	    with open( os.getcwd() + "/hmgnzt_data/" + file_name, 'rb' ) as csvfile:
-		    spamreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-		    total_lines = 0
-		    for line in spamreader:
-			    total_lines = total_lines + 1 
-		
-		    quad = tensor.initTensor(0., total_lines, 2)
-		    print
-		    print "Importing data from", file_name
-		    print "The file contains", total_lines, "lines."
-		    csvfile.seek(0)
-		    i = 0
-		    for row in spamreader:
-			    quad[i][0] = float(row[0])
-			    quad[i][1] = float(row[1])
-			    i = i + 1
-	    return quad
+        i = 0
+        tensor = tensors()
+        with open( os.getcwd() + "/hmgnzt_data/" + file_name, 'rb' ) as csvfile:
+            spamreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+            total_lines = 0
+            for line in spamreader:
+                total_lines = total_lines + 1 
+                
+            quad = tensor.initTensor(0., total_lines, 2)
+            print
+            print "Importing data from", file_name
+            print "The file contains", total_lines, "lines."
+            csvfile.seek(0)
+            i = 0
+            for row in spamreader:
+                quad[i][0] = float(row[0])
+                quad[i][1] = float(row[1])
+                i = i + 1
+        return quad
         
     def get_angle_0pi(self):
         angle_0pi = []
